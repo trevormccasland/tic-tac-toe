@@ -10,7 +10,7 @@ import { RootState } from '@/types'
 import Grid from '@mui/material/Unstable_Grid2'
 import { Button, ButtonProps } from '@mui/material'
 
-const TttButton = ({ sx, children }: ButtonProps) => (
+const TttButton = ({ sx, children, ...rest }: ButtonProps) => (
   <Button
     variant="text"
     sx={{
@@ -19,7 +19,8 @@ const TttButton = ({ sx, children }: ButtonProps) => (
       border: 1,
       borderColor: 'text.primary',
       ...sx,
-    }}>
+    }}
+    {...rest}>
     {children}
   </Button>
 )
@@ -38,7 +39,7 @@ export default function Home() {
       </div>
       <Grid container direction="column">
         <Grid container>
-          <TttButton disabled={true} sx={{ borderTop: 0, borderLeft: 0 }}>
+          <TttButton disabled sx={{ borderTop: 0, borderLeft: 0 }}>
             1
           </TttButton>
           <TttButton sx={{ borderTop: 0 }}>2</TttButton>
