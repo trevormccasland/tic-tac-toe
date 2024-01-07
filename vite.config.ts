@@ -15,7 +15,7 @@ export default defineConfig({
     alias: {
       '@': resolve('src/'),
       '~': resolve('static/'),
-    }
+    },
   },
   server: {
     host: '0.0.0.0',
@@ -28,17 +28,14 @@ export default defineConfig({
       //   changeOrigin: true,
       //   // rewrite: (path) => path.replace(/^\/api/, '')
       // },
-    }
+    },
   },
-  plugins: [
-    reactRefresh(),
-    eslintPlugin({fix: true}),
-  ],
-  css:{
+  plugins: [reactRefresh(), eslintPlugin({ fix: true })],
+  css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "src/assets/scss/vars/index.scss";`
-      }
-    }
-  }
+        additionalData: `@import "src/assets/scss/vars/index.scss";`,
+      },
+    },
+  },
 })

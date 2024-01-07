@@ -8,7 +8,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
   },
   // parser: 'vue-eslint-parser',
   extends: [
@@ -17,21 +17,21 @@ module.exports = {
     'plugin:prettier/recommended',
     // 'prettier/@typescript-eslint',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
   ],
   plugins: [
     // 'vue',
     'react',
     'react-hooks',
-    '@typescript-eslint'
+    '@typescript-eslint',
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
     ecmaVersion: 2018,
     ecmaFeatures: {
-      'jsx': true
-    }
+      jsx: true,
+    },
   },
   rules: {
     // TS不需要prop-types
@@ -72,16 +72,16 @@ module.exports = {
       {
         multiline: {
           delimiter: 'none', // 'none' or 'semi' or 'comma'
-          requireLast: true
+          requireLast: true,
         },
         singleline: {
           delimiter: 'semi', // 'semi' or 'comma'
-          requireLast: false
-        }
-      }
+          requireLast: false,
+        },
+      },
     ],
     // '@typescript-eslint/interface-name-prefix': [2, { prefixWithI: 'always' }],
     '@typescript-eslint/explicit-function-return-type': ['off'],
-    '@typescript-eslint/no-explicit-any': ['off'] // 先忽略，但是尽量少用 any
-  }
+    '@typescript-eslint/no-explicit-any': ['off'], // 先忽略，但是尽量少用 any
+  },
 }
