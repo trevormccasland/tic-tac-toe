@@ -4,14 +4,14 @@
  * Date: 2021-07-24 11:54 (GMT+0900)
  */
 import { configureStore } from '@reduxjs/toolkit'
-import { counterSlice } from './counterSlice'
+import { boardSlice } from './boardSlice'
 
 const store = configureStore({
   reducer: {
-    counter: counterSlice.reducer,
+    board: boardSlice.reducer,
   },
 })
 
-export { counterSlice }
+export { boardSlice }
 
 export default store

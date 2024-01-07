@@ -5,19 +5,27 @@
  */
 import React from 'react'
 import { useSelector } from 'react-redux'
-import store, { counterSlice } from '@/stores'
+import store, { boardSlice } from '@/stores'
 import { RootState } from '@/types'
 import Grid from '@mui/material/Unstable_Grid2'
 import { Button, ButtonProps } from '@mui/material'
+import './Home.css'
+import { Board } from '@/stores/boardSlice'
 
 const TttButton = ({ sx, children, ...rest }: ButtonProps) => (
   <Button
+    id={'TttButton'}
     variant="text"
     sx={{
       '&:hover': { backgroundColor: 'transparent' },
       borderRadius: 0,
       border: 1,
       borderColor: 'text.primary',
+      minWidth: '5rem',
+      maxWidth: '5rem',
+      minHeight: '5rem',
+      maxHeight: '5rem',
+      fontSize: '28px',
       ...sx,
     }}
     {...rest}>
@@ -26,34 +34,69 @@ const TttButton = ({ sx, children, ...rest }: ButtonProps) => (
 )
 
 export default function Home() {
-  const count = useSelector<RootState>((state) => state.counter.count) as number
+  const values = useSelector<RootState, Board>((state) => state.board.values)
   return (
     <div>
       <h1>Home</h1>
-      <p>{count}</p>
-      <div>
-        <button onClick={() => store.dispatch(counterSlice.actions.increase(1))} className={`mr20`}>
-          increase
-        </button>
-        <button onClick={() => store.dispatch(counterSlice.actions.decrease(1))}>decrease</button>
-      </div>
       <Grid container direction="column">
         <Grid container>
-          <TttButton disabled sx={{ borderTop: 0, borderLeft: 0 }}>
-            1
+          <TttButton
+            disabled={Boolean(values[0][0])}
+            sx={{ borderTop: 0, borderLeft: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 0, col: 0 }))}>
+            {values[0][0]}
           </TttButton>
-          <TttButton sx={{ borderTop: 0 }}>2</TttButton>
-          <TttButton sx={{ borderTop: 0, borderRight: 0 }}>3</TttButton>
+          <TttButton
+            disabled={Boolean(values[0][1])}
+            sx={{ borderTop: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 0, col: 1 }))}>
+            {values[0][1]}
+          </TttButton>
+          <TttButton
+            disabled={Boolean(values[0][2])}
+            sx={{ borderTop: 0, borderRight: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 0, col: 2 }))}>
+            {values[0][2]}
+          </TttButton>
         </Grid>
         <Grid container>
-          <TttButton sx={{ borderLeft: 0 }}>1</TttButton>
-          <TttButton>2</TttButton>
-          <TttButton sx={{ borderRight: 0 }}>3</TttButton>
+          <TttButton
+            disabled={Boolean(values[1][0])}
+            sx={{ borderLeft: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 1, col: 0 }))}>
+            {values[1][0]}
+          </TttButton>
+          <TttButton
+            disabled={Boolean(values[1][1])}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 1, col: 1 }))}>
+            {values[1][1]}
+          </TttButton>
+          <TttButton
+            disabled={Boolean(values[1][2])}
+            sx={{ borderRight: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 1, col: 2 }))}>
+            {values[1][2]}
+          </TttButton>
         </Grid>
         <Grid container>
-          <TttButton sx={{ borderBottom: 0, borderLeft: 0 }}>1</TttButton>
-          <TttButton sx={{ borderBottom: 0 }}>2</TttButton>
-          <TttButton sx={{ borderBottom: 0, borderRight: 0 }}>3</TttButton>
+          <TttButton
+            disabled={Boolean(values[2][0])}
+            sx={{ borderBottom: 0, borderLeft: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 2, col: 0 }))}>
+            {values[2][0]}
+          </TttButton>
+          <TttButton
+            disabled={Boolean(values[2][1])}
+            sx={{ borderBottom: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 2, col: 1 }))}>
+            {values[2][1]}
+          </TttButton>
+          <TttButton
+            disabled={Boolean(values[2][2])}
+            sx={{ borderBottom: 0, borderRight: 0 }}
+            onClick={() => store.dispatch(boardSlice.actions.setValue({ row: 2, col: 2 }))}>
+            {values[2][2]}
+          </TttButton>
         </Grid>
       </Grid>
     </div>
