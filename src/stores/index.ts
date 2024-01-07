@@ -4,14 +4,14 @@
  * Date: 2021-07-24 11:54 (GMT+0900)
  */
 import { configureStore } from '@reduxjs/toolkit'
-import { boardSlice } from './boardSlice'
+import { ticTacToeSlice } from './ticTacToeSlice'
 
 const store = configureStore({
   reducer: {
-    board: boardSlice.reducer,
+    tictactoe: ticTacToeSlice.reducer,
   },
 })
 
-export { boardSlice }
+export { ticTacToeSlice }
 
 export default store
