@@ -1,25 +1,11 @@
-#TttButton.Mui-disabled {
-    color: black;
-}
-
 .homeContainer {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    flex-direction: column;
 }
 
-.headerContainer {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+a.homeCenter {
     width: max-content;
-    margin-bottom: 1rem;
-}
-
-.center {
-    width: max-content;
-    margin-left: auto;
-    margin-right: auto;
+    height: max-content;
+    margin: auto;
 }

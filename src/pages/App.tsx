@@ -6,13 +6,17 @@
 import React from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home'
+import TicTacToe from './TicTacToe'
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/tictactoe">
+          <TicTacToe />
         </Route>
       </Switch>
     </Router>
